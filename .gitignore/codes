@@ -1,0 +1,4 @@
+  sudo apt-get -y update && \
+  sudo apt-get -y install trimmomatic fastqc python-pip \
+  zlib1g-dev ncurses-dev python-dev 
+  
