@@ -15,3 +15,11 @@ echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
 source ~/.bashrc
 mkdir ~/work
 cd ~/work
+wget https://github.com/ctb/2017-ucdavis-igg201b/raw/master/lab1/ecoli-rel606.fa.gz
+gunzip ecoli-rel606.fa.gz
+bwa index ecoli-rel606.fa # Prepare it for mapping:
+bwa mem -t 6 ecoli-rel606.fa ~/data/SRR2584857.fq.gz > SRR2584857.sam # map
+head SRR2584857.sam
+sudo apt-get -y install samtools # install samtools
+samtools view -hSbo SRR2584857.bam SRR2584857.sam #Convert the SAM file into a BAM file that can be sorted and indexed
+samtools sort SRR2584857.bam SRR2584857.sorted #Sort the BAM file by position in genome
