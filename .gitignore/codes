@@ -1,4 +1,8 @@
+  log in, and then install samtools:
   sudo apt-get -y update && \
   sudo apt-get -y install trimmomatic fastqc python-pip \
   zlib1g-dev ncurses-dev python-dev 
   
+ mkdir ~/data
+ cd ~/data
+ curl -O http://dib-training.ucdavis.edu.s3.amazonaws.com/2017-ucdavis-igg201b/SRR2584857.fq.gz
