@@ -4,23 +4,19 @@ tar xvfj bwa-0.7.10.tar.bz2
 cd bwa-0.7.10
 make
 cp bwa /usr/local/bin
+
 #Also install samtools
+
 Download data
 Download the reference genome and the resequencing reads:
-
 cd /mnt
-
 curl -O http://athyra.idyll.org/~t/REL606.fa.gz
 gunzip REL606.fa.gz
-
 curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR098/SRR098038/SRR098038.fastq.gz
-Note, this last URL is the “Fastq files (FTP)” link from the European Nucleotide Archive (ENA) for this sample: http://www.ebi.ac.uk/ena/data/view/SRR098042.
 
-Do the mapping
-Now let’s map all of the reads to the reference. Start by indexing the reference genome:
-
+#Do the mapping
+#Start by indexing the reference genome:
 cd /mnt
-
 bwa index REL606.fa
 Now, do the mapping of the raw reads to the reference genome:
 
