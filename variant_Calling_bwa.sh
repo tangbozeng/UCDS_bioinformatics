@@ -39,8 +39,6 @@ samtools index SRR098038.sorted
 samtools tview SRR098038.sorted REL606.fa
 
 #Counting alignments
-This command:
-
 samtools view -c -f 4 SRR098038.bam
 will count how many reads DID NOT align to the reference (214518).
 
