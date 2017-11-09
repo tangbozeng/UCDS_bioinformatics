@@ -1,0 +1,16 @@
+Results for Project 2448 are available 
+A summary of your project, including QC, contamination screening and content analysis can be found at this link: http://ess-portal.exeter.ac.uk/projects/2448 
+Downloading via a FTP (browser) 
+ftp://Project_2448:Ex8aii1ZLdoLy@ftp.sequencing.exeter.ac.uk/ 
+*Please note that this link will not work on the Safari web-browser. 
+Downloading via an FTP client (e.g. WinSCP or Fugu): 
+Server	ftp.sequencing.exeter.ac.uk
+
+Username	Project_2448
+Password	Ex8aii1ZLdoLy
+	
+WinSCP tutorial	https://www.youtube.com/watch?v=2YXNROADlOI
+
+Fugu instructions	http://rsug.itd.umich.edu/software/fugu/files/fugu-1.2.0-README.pdf
+
+Guide to your data 
