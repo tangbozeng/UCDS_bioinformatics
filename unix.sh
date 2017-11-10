@@ -1,18 +1,14 @@
-2:Unix programming
-
-cmd+K, clear
-
+#Unix programming
+cmd+K #clear ctril+L in linux
 echo ‘hello world’ #print
 control+a # move to start of line
 control+e # move to end of line
-command SPACE options SPACE argument
-command(functions)
-(-a,-b, -p, )
-options (对象， files)
+
+command SPACE options SPACE argument #基本语法 命令 选择条件 输出
+
 echo ‘hello’; echo ‘wold’
 hello
-world
-# 分开的
+world # 分开的
 
 echo $0 # the shell we are working now
 
@@ -33,21 +29,18 @@ cd .. #回到上一层
 cd -# go back to recent previously place
 cd ‘Application Support’ # go fold with space name
 cd ad cd ~ # same
+
 touch somefile.txt # creat and modif ysome file.txt
-
 cat file1 file2 # read files
-
 less # is best for reading files
-
 head ok.txt # beginning of the file
-
 tail # end of the file
 
 mkdir tester # create directory
 mkdir tester/tester # create tester in tester as folder
 mkdir -p test1/test2/test3/ # create with more than 2folders
 
-mv ok.txt Desktop/ok.txt # 把ok。txt移动到桌面
+mv ok.txt Desktop/ok.txt # 把ok.txt移动到桌面
 
 grep # for search 
 grep apple fruit.txt #search apple  in fruit.txt, 识别大小写
