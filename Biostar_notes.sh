@@ -33,80 +33,26 @@ grep YAL060W sc.gff > match.gff#我们可以把这些所得到的匹配结果存
 #管道命令（多个命令连用）
 #有多少行是匹配“gene”这个词的?
 
-#*这个命令是先把含有gene一词的行选出来，然后用wc -l查看有多少行。大家可以试试不加-l是什么结果。
-
-grep gene sc.gff | wc -l
-
- 
-
-#有多少行是同时匹配“gene”和“chrVI”(6号染色体)这两个词?
-
-grep gene sc.gff | grep chrVI | wc -l
+grep gene sc.gff | wc -l#*这个命令是先把含有gene一词的行选出来，然后用wc -l查看有多少行
+grep gene sc.gff | grep chrVI | wc -l#有多少行是同时匹配“gene”和“chrVI”(6号染色体)这两个词?
+grep gene sc.gff | grep chrVI | grep -v Dubious | wc -l#* -v是反转匹配（invert match）的意思，这里就是挑选除了匹配Dubious之外的所有行。
 
  
-
-#在上述符合条件的行里，不匹配“Dubious”的有多少行? 
-
-#* -v是反转匹配（invert match）的意思，这里就是挑选除了匹配Dubious之外的所有行。
-
-grep gene sc.gff | grep chrVI | grep -v Dubious | wc -l
-
- 
-
 #这个文件有点奇怪。它分为两个部分,表格部分是tab分隔的9列数据，另一部分是一条完整的基因组序列
-
- 
-
 #把这个文件分为两部分。把基因组序列之前的所有行存进文件features.gff.
-
-#我们发现，出现含有单词“FASTA”的行就意味着基因组信息从这里开始。
-
-cat -n sc.gff | head
-
- 
-
-#找到“FASTA”在文件中的位置。 -n是指，把文件的行号输出来。
-
-cat -n sc.gff | grep FASTA
-
- 
-
-#把这个行号之前的所有含基因组特征信息的行存进新的文件中。同时去除含有“#”的注释行
-
-head -22994 sc.gff | grep -v '#' > features.gff
-
- 
-
-#整了这么多，我们只是想单独把表格形式的这些信息分选出来。来看看这些特征信息有多少行。
-
-wc -l features.gff
-
- 
-
-#把前三列截取出来。
-
-#* cut 在不指定分隔符的时候，默认是tab分割。如果是其他分隔符，可以用-d指定分隔符类型，以逗号分隔（比如csv格式）为例：cut -d "," -f 1,2,3 features.gff | head
-
-
-
-cut -f 1,2,3 features.gff | head
-
- 
+cat -n sc.gff | head#我们发现，出现含有单词“FASTA”的行就意味着基因组信息从这里开始。
+cat -n sc.gff | grep FASTA#找到“FASTA”在文件中的位置。 -n是指，把文件的行号输出来。
+head -22994 sc.gff | grep -v '#' > features.gff#把这个行号之前的所有含基因组特征的行存进新的文件中。去除含有“#”的注释行
+wc -l features.gff#整了这么多，我们只是想单独把表格形式的这些信息分选出来。来看看这些特征信息有多少行。
+cut -f 1,2,3 features.gff | head#* cut 在不指定分隔符的时候，默认是tab分割。
+#如果是其他分隔符，可以用-d指定分隔符类型，
+#以逗号分隔（比如csv格式）为例：cut -d "," -f 1,2,3 features.gff | head
 
 #去除这个GFF文件的第三列重复的词
-
 #*这里sort是从小到大排序。
-
 #uniq 命令是把同样的词只保留一个。
-
 #*举例来说，比如一组数据有1，1，2，3，3，3.经过uniq就变为1，2，3
-
 cut -f 3 features.gff |sort | uniq | head
 
- 
-
-
-
 #也可以计算某个词有多少个重复（uniq 加-c后显示重复个数）
-
 cut -f 3 features.gff |sort | uniq -c | head
