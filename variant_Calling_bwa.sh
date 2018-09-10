@@ -55,7 +55,7 @@ will tell you how many lines there are in the FASTQ file (28186524). Reminder: t
 Calling SNPs
 You can use samtools to call SNPs like so:
 
-samtools mpileup -uD -f REL606.fa SRR098038.sorted.bam | bcftools view -bvcg - > SRR098038.raw.bcf
+samtools mpileup -uD -f REL606.fa SRR098038.sorted | bcftools call -mv -Ov > SRR098038.raw.bcf
 (See the ‘mpileup’ docs here.)
 
 Now convert the BCF into VCF:
